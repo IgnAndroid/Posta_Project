@@ -7,3 +7,6 @@ export function setupCounter(element) {
   element.addEventListener('click', () => setCounter(counter + 1))
   setCounter(0)
 }
+
+// Nota : este archivo es solo un ejemplo de un módulo JS simple.
+// Puedes eliminarlo si no lo necesitas.
