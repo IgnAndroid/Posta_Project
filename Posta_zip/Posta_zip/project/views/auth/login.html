@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - miPosta</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="../public/index.html">
+                <i class="fas fa-stethoscope me-2"></i>miPosta
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home me-1"></i>Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/contact.html">
+                            <i class="fas fa-envelope me-1"></i>Contáctenos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="login-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-7">
+                    <div class="login-card">
+                        <div class="login-header">
+                            <h3 class="mb-0"><i class="fas fa-user-shield me-2"></i>Iniciar Sesión</h3>
+                            <p class="mb-0 mt-2 opacity-75">Accede a tu panel de control</p>
+                        </div>
+                        
+                        <div class="login-body">
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">
+                                        <i class="fas fa-envelope me-1"></i>Correo Electrónico
+                                    </label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">
+                                        <i class="fas fa-lock me-1"></i>Contraseña
+                                    </label>
+                                    <input type="password" class="form-control" id="password" required>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="role" class="form-label">
+                                        <i class="fas fa-user-tag me-1"></i>Seleccionar Rol
+                                    </label>
+                                    <select class="form-select" id="role" required>
+                                        <option value="">Seleccione su rol...</option>
+                                        <option value="admin">Administrador</option>
+                                        <option value="medico">Personal Médico</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="d-grid mb-3">
+                                    <button type="submit" class="btn btn-primary-custom btn-lg">
+                                        <i class="fas fa-sign-in-alt me-2"></i>Ingresar al Sistema
+                                    </button>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <a href="#" class="text-muted text-decoration-none">
+                                        <small><i class="fas fa-question-circle me-1"></i>¿Olvidaste tu contraseña?</small>
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Demo Credentials -->
+                    <div class="card mt-4" style="background: rgba(255,255,255,0.9);">
+                        <div class="card-body">
+                            <h6 class="text-primary-custom"><i class="fas fa-info-circle me-1"></i>Credenciales de Demostración</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>Administrador:</strong><br>
+                                    <small>Email: admin@miposta.com<br>
+                                    Contraseña: admin123</small>
+                                </div>
+                                <div class="col-md-6">
+                                    <strong>Personal Médico:</strong><br>
+                                    <small>Email: medico@miposta.com<br>
+                                    Contraseña: medico123</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const role = document.getElementById('role').value;
+            
+            // Simulación de autenticación
+            if (email && password && role) {
+                // Mostrar loading
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Verificando...';
+                submitBtn.disabled = true;
+                
+                // Simular delay de red
+                setTimeout(() => {
+                    if (role === 'admin') {
+                            window.location.href = '../admin/admin-dashboard.html';
+                        } else if (role === 'medico') {
+                            window.location.href = '../medico/medico-dashboard.html';
+                        }
+                }, 1500);
+            }
+        });
+
+        // Auto-complete demo credentials
+        document.addEventListener('DOMContentLoaded', function() {
+            const roleSelect = document.getElementById('role');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            
+            roleSelect.addEventListener('change', function() {
+                if (this.value === 'admin') {
+                    emailInput.value = 'admin@miposta.com';
+                    passwordInput.value = 'admin123';
+                } else if (this.value === 'medico') {
+                    emailInput.value = 'medico@miposta.com';
+                    passwordInput.value = 'medico123';
+                } else {
+                    emailInput.value = '';
+                    passwordInput.value = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

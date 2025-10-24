@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctenos - miPosta</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-stethoscope me-2"></i>miPosta
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../paciente/miscitas.html">
+                            <i class="fas fa-calendar-alt me-1"></i>Mis Citas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="noticias.html">
+                            <i class="fas fa-newspaper me-1"></i>Noticias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="campanias.html">
+                            <i class="fas fa-bullhorn me-1"></i>Campañas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="soporte.html">
+                            <i class="fas fa-headset me-1"></i>Soporte
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">
+                            <i class="fas fa-envelope me-1"></i>Contáctenos
+                        </a>
+                    </li>
+                </ul>
+                <a href="../auth/login.html" class="btn btn-login">
+                    <i class="fas fa-sign-in-alt me-1"></i>Iniciar Sesión
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1><i class="fas fa-envelope me-2"></i>Contáctanos</h1>
+                    <p class="lead mb-0">Estamos aquí para ayudarte. Envíanos tu consulta y te responderemos pronto</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <div class="d-flex justify-content-md-end gap-2">
+                        <a href="tel:012345678" class="btn btn-light">
+                            <i class="fas fa-phone me-1"></i>Llamar
+                        </a>
+                        <a href="mailto:info@miposta.com" class="btn btn-success-custom">
+                            <i class="fas fa-envelope me-1"></i>Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Form -->
+                <div class="col-lg-8">
+                    <div class="card card-custom">
+                        <div class="card-header card-header-custom">
+                            <h4 class="mb-0"><i class="fas fa-paper-plane me-2"></i>Envíanos un Mensaje</h4>
+                        </div>
+                        <div class="card-body p-4">
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="firstName" class="form-label">
+                                                <i class="fas fa-user me-1"></i>Nombres *
+                                            </label>
+                                            <input type="text" class="form-control" id="firstName" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="lastName" class="form-label">
+                                                <i class="fas fa-user me-1"></i>Apellidos *
+                                            </label>
+                                            <input type="text" class="form-control" id="lastName" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">
+                                                <i class="fas fa-envelope me-1"></i>Correo Electrónico *
+                                            </label>
+                                            <input type="email" class="form-control" id="email" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="phone" class="form-label">
+                                                <i class="fas fa-phone me-1"></i>Teléfono
+                                            </label>
+                                            <input type="tel" class="form-control" id="phone">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">
+                                        <i class="fas fa-tag me-1"></i>Asunto *
+                                    </label>
+                                    <select class="form-select" id="subject" required>
+                                        <option value="">Selecciona un asunto...</option>
+                                        <option value="citas">Consulta sobre Citas</option>
+                                        <option value="servicios">Información de Servicios</option>
+                                        <option value="resultados">Consulta sobre Resultados</option>
+                                        <option value="sugerencia">Sugerencia o Reclamo</option>
+                                        <option value="emergencia">Emergencia Médica</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">
+                                        <i class="fas fa-comment-alt me-1"></i>Mensaje *
+                                    </label>
+                                    <textarea class="form-control" id="message" rows="6" placeholder="Describe tu consulta o comentario..." required></textarea>
+                                    <div class="form-text">Mínimo 10 caracteres</div>
+                                </div>
+
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="privacy" required>
+                                    <label class="form-check-label" for="privacy">
+                                        Acepto la <a href="#" class="text-primary-custom">Política de Privacidad</a> y el tratamiento de mis datos personales *
+                                    </label>
+                                </div>
+
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="newsletter">
+                                    <label class="form-check-label" for="newsletter">
+                                        Deseo recibir noticias y actualizaciones por correo electrónico
+                                    </label>
+                                </div>
+
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary-custom btn-lg">
+                                        <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-4">
+                    <!-- Contact Details -->
+                    <div class="card card-custom mb-4">
+                        <div class="card-body">
+                            <h5 class="text-primary-custom mb-3">
+                                <i class="fas fa-map-marker-alt me-2"></i>Información de Contacto
+                            </h5>
+                            
+                            <div class="contact-item mb-3">
+                                <div class="d-flex align-items-start">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-hospital text-primary-custom"></i>
+                                    </div>
+                                    <div>
+                                        <h6>Dirección</h6>
+                                        <p class="text-muted mb-0">Av. Salud 123, Distrito San Borja<br>Lima, Perú</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-item mb-3">
+                                <div class="d-flex align-items-start">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone text-success-custom"></i>
+                                    </div>
+                                    <div>
+                                        <h6>Teléfono</h6>
+                                        <p class="text-muted mb-1">Central: (01) 234-5678</p>
+                                        <p class="text-muted mb-0">Emergencias: (01) 234-5679</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-item mb-3">
+                                <div class="d-flex align-items-start">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope text-warning"></i>
+                                    </div>
+                                    <div>
+                                        <h6>Correo Electrónico</h6>
+                                        <p class="text-muted mb-1">info@miposta.com</p>
+                                        <p class="text-muted mb-0">citas@miposta.com</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="d-flex align-items-start">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-clock text-info"></i>
+                                    </div>
+                                    <div>
+                                        <h6>Horarios de Atención</h6>
+                                        <p class="text-muted mb-1">Lunes a Viernes: 7:00 - 19:00</p>
+                                        <p class="text-muted mb-1">Sábados: 8:00 - 14:00</p>
+                                        <p class="text-muted mb-0">Emergencias: 24/7</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Help -->
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <h5 class="text-primary-custom mb-3">
+                                <i class="fas fa-question-circle me-2"></i>¿Necesitas Ayuda Inmediata?
+                            </h5>
+                            
+                            <div class="d-grid gap-2">
+                                <a href="soporte.html" class="btn btn-outline-primary">
+                                    <i class="fas fa-headset me-2"></i>Centro de Soporte
+                                </a>
+                                <a href="../paciente/miscitas.html" class="btn btn-outline-success">
+                                    <i class="fas fa-calendar-alt me-2"></i>Gestionar Citas
+                                </a>
+                                <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#emergencyModal">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>Emergencia
+                                </button>
+                            </div>
+
+                            <hr>
+
+                            <h6 class="text-primary-custom">Síguenos</h6>
+                            <div class="social-links d-flex gap-2">
+                                <a href="#" class="btn btn-outline-primary btn-sm">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-info btn-sm">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-danger btn-sm">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-success btn-sm">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-5 bg-light-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-4">
+                    <h2 class="text-primary-custom">¿Cómo Llegar?</h2>
+                    <p class="text-muted">Encuéntranos fácilmente en nuestra ubicación</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-custom">
+                        <div class="card-body p-0">
+                            <!-- Placeholder for map -->
+                            <div style="height: 400px; background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%); display: flex; align-items: center; justify-content: center; color: #718096;">
+                                <div class="text-center">
+                                    <i class="fas fa-map-marker-alt" style="font-size: 4rem;"></i>
+                                    <h4 class="mt-3">Mapa Interactivo</h4>
+                                    <p>Av. Salud 123, San Borja - Lima</p>
+                                    <button class="btn btn-primary-custom" onclick="openMap()">
+                                        <i class="fas fa-external-link-alt me-1"></i>Ver en Google Maps
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transportation Info -->
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card card-custom text-center">
+                        <div class="card-body">
+                            <i class="fas fa-bus text-primary-custom mb-2" style="font-size: 2rem;"></i>
+                            <h6>Transporte Público</h6>
+                            <small class="text-muted">Líneas 201, 301, 405<br>Estación San Borja</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-custom text-center">
+                        <div class="card-body">
+                            <i class="fas fa-car text-success-custom mb-2" style="font-size: 2rem;"></i>
+                            <h6>Estacionamiento</h6>
+                            <small class="text-muted">Gratuito para pacientes<br>50 espacios disponibles</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-custom text-center">
+                        <div class="card-body">
+                            <i class="fas fa-wheelchair text-warning mb-2" style="font-size: 2rem;"></i>
+                            <h6>Accesibilidad</h6>
+                            <small class="text-muted">Instalaciones adaptadas<br>para personas con discapacidad</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Modal -->
+    <div class="modal fade" id="emergencyModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title">
+                        <i class="fas fa-exclamation-triangle me-2"></i>Emergencia Médica
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <strong>¿Es una emergencia real?</strong> Si es una emergencia que pone en peligro la vida, llama inmediatamente al 911 o SAMU.
+                    </div>
+                    
+                    <h6>Números de Emergencia:</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fas fa-phone text-danger me-2"></i>
+                            <strong>SAMU:</strong> 106
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-phone text-danger me-2"></i>
+                            <strong>Bomberos:</strong> 116
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-phone text-danger me-2"></i>
+                            <strong>Policía:</strong> 105
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-phone text-primary me-2"></i>
+                            <strong>miPosta Emergencia:</strong> (01) 234-5679
+                        </li>
+                    </ul>
+
+                    <h6>¿No es una emergencia grave?</h6>
+                    <p class="text-muted">Para consultas urgentes pero no críticas, puedes:</p>
+                    <ul>
+                        <li>Llamar a nuestra línea de consultas: (01) 234-5678</li>
+                        <li>Usar nuestro chat de soporte 24/7</li>
+                        <li>Solicitar una cita prioritaria</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <a href="tel:106" class="btn btn-danger">
+                        <i class="fas fa-phone me-1"></i>Llamar SAMU
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5><i class="fas fa-stethoscope me-2"></i>miPosta</h5>
+                    <p class="text-muted">Sistema moderno de gestión de citas médicas diseñado para mejorar la atención sanitaria y optimizar los procesos administrativos.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../paciente/miscitas.html">Mis Citas</a></li>
+                        <li class="mb-2"><a href="noticias.html">Noticias</a></li>
+                        <li class="mb-2"><a href="campanias.html">Campañas</a></li>
+                        <li class="mb-2"><a href="soporte.html">Soporte</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Medicina General</a></li>
+                        <li class="mb-2"><a href="#">Pediatría</a></li>
+                        <li class="mb-2"><a href="#">Cardiología</a></li>
+                        <li class="mb-2"><a href="#">Vacunación</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Av. Salud 123, Lima</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>(01) 234-5678</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>info@miposta.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i>Lun-Vie: 7:00-19:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4" style="opacity: 0.3;">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2024 miPosta. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small class="text-muted">Diseñado con <i class="fas fa-heart text-danger"></i> para la salud</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                newsletter: document.getElementById('newsletter').checked
+            };
+            
+            // Validate message length
+            if (formData.message.length < 10) {
+                showAlert('El mensaje debe tener al menos 10 caracteres.', 'warning');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Show success message
+                showAlert('¡Mensaje enviado correctamente! Te responderemos en las próximas 24 horas.', 'success');
+                
+                // Reset form
+                this.reset();
+            }, 2000);
+        });
+
+        function showAlert(message, type) {
+            // Create alert element
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+            alertDiv.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'} me-2"></i>
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            // Insert at top of form
+            const form = document.getElementById('contactForm');
+            form.insertBefore(alertDiv, form.firstChild);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.remove();
+                }
+            }, 5000);
+        }
+
+        function openMap() {
+            // Open Google Maps with the location
+            const address = encodeURIComponent('Av. Salud 123, San Borja, Lima, Peru');
+            window.open(`https://www.google.com/maps/search/?api=1&query=${address}`, '_blank');
+        }
+
+        // Add contact icon styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .contact-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: #f8f9fa;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 15px;
+                flex-shrink: 0;
+            }
+            .contact-item h6 {
+                margin-bottom: 0.25rem;
+                font-weight: 600;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Form validation enhancements
+        document.querySelectorAll('#contactForm input, #contactForm select, #contactForm textarea').forEach(field => {
+            field.addEventListener('blur', function() {
+                if (this.hasAttribute('required') && !this.value.trim()) {
+                    this.classList.add('is-invalid');
+                } else {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                }
+            });
+            
+            field.addEventListener('input', function() {
+                if (this.classList.contains('is-invalid') && this.value.trim()) {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

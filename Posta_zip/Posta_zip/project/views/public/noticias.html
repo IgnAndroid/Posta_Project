@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias - miPosta</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-stethoscope me-2"></i>miPosta
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../paciente/miscitas.html">
+                            <i class="fas fa-calendar-alt me-1"></i>Mis Citas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="noticias.html">
+                            <i class="fas fa-newspaper me-1"></i>Noticias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="campanias.html">
+                            <i class="fas fa-bullhorn me-1"></i>Campañas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="soporte.html">
+                            <i class="fas fa-headset me-1"></i>Soporte
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-envelope me-1"></i>Contáctenos
+                        </a>
+                    </li>
+                </ul>
+                <a href="../auth/login.html" class="btn btn-login">
+                    <i class="fas fa-sign-in-alt me-1"></i>Iniciar Sesión
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1><i class="fas fa-newspaper me-2"></i>Noticias y Comunicados</h1>
+                    <p class="lead mb-0">Mantente informado sobre las últimas novedades de nuestra posta médica</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <button class="btn btn-light">
+                        <i class="fas fa-rss me-1"></i>Suscribirse
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured News -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="card card-custom" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                        <div class="card-body p-5">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <span class="badge bg-warning text-dark mb-3">NOTICIA DESTACADA</span>
+                                    <h2 class="display-6 mb-3">Nueva Área de Cardiología Inaugurada</h2>
+                                    <p class="lead mb-4">Nos complace anunciar la apertura de nuestro nuevo departamento de cardiología, equipado con la última tecnología para brindar el mejor cuidado cardiovascular.</p>
+                                    <button class="btn btn-light btn-lg">
+                                        <i class="fas fa-arrow-right me-2"></i>Leer Más
+                                    </button>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <i class="fas fa-heartbeat" style="font-size: 8rem; opacity: 0.3;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Grid -->
+            <div class="row g-4">
+                <!-- News Item 1 -->
+                <div class="col-lg-6">
+                    <div class="card card-custom h-100">
+                        <img src="https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                             class="card-img-top" height="250" style="object-fit: cover;" alt="Nuevos horarios">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-info">COMUNICADO</span>
+                                <small class="text-muted">15 Nov 2024</small>
+                            </div>
+                            <h4 class="text-primary-custom">Ampliación de Horarios de Atención</h4>
+                            <p class="card-text">A partir del 1 de diciembre, estaremos extendiendo nuestros horarios de atención para brindar un mejor servicio a nuestros pacientes.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-outline-primary">Leer Completa</button>
+                                <div class="text-muted">
+                                    <i class="fas fa-eye me-1"></i>245 vistas
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Item 2 -->
+                <div class="col-lg-6">
+                    <div class="card card-custom h-100">
+                        <img src="https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                             class="card-img-top" height="250" style="object-fit: cover;" alt="Vacunación">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-success">IMPORTANTE</span>
+                                <small class="text-muted">12 Nov 2024</small>
+                            </div>
+                            <h4 class="text-primary-custom">Campaña de Vacunación Gratuita</h4>
+                            <p class="card-text">Iniciamos nuestra campaña de vacunación gratuita contra la influenza. Disponible para todas las edades durante todo el mes de noviembre.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-outline-primary">Leer Completa</button>
+                                <div class="text-muted">
+                                    <i class="fas fa-eye me-1"></i>189 vistas
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Item 3 -->
+                <div class="col-lg-6">
+                    <div class="card card-custom h-100">
+                        <img src="https://images.pexels.com/photos/5214424/pexels-photo-5214424.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                             class="card-img-top" height="250" style="object-fit: cover;" alt="Nuevo pediatra">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-primary">PERSONAL</span>
+                                <small class="text-muted">08 Nov 2024</small>
+                            </div>
+                            <h4 class="text-primary-custom">Nueva Pediatra se Une al Equipo</h4>
+                            <p class="card-text">Damos la bienvenida a la Dra. Carmen Flores, especialista en pediatría con más de 10 años de experiencia, quien se une a nuestro equipo médico.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-outline-primary">Leer Completa</button>
+                                <div class="text-muted">
+                                    <i class="fas fa-eye me-1"></i>156 vistas
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Item 4 -->
+                <div class="col-lg-6">
+                    <div class="card card-custom h-100">
+                        <img src="https://images.pexels.com/photos/6749818/pexels-photo-6749818.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                             class="card-img-top" height="250" style="object-fit: cover;" alt="Tecnología">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-warning text-dark">TECNOLOGÍA</span>
+                                <small class="text-muted">05 Nov 2024</small>
+                            </div>
+                            <h4 class="text-primary-custom">Nuevo Sistema de Citas Online</h4>
+                            <p class="card-text">Hemos implementado un sistema de citas online más eficiente que permite a los pacientes agendar sus consultas las 24 horas del día.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-outline-primary">Leer Completa</button>
+                                <div class="text-muted">
+                                    <i class="fas fa-eye me-1"></i>198 vistas
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Item 5 -->
+                <div class="col-lg-6">
+                    <div class="card card-custom h-100">
+                        <img src="https://images.pexels.com/photos/3985163/pexels-photo-3985163.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                             class="card-img-top" height="250" style="object-fit: cover;" alt="Medidas sanitarias">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-danger">SALUD PÚBLICA</span>
+                                <small class="text-muted">02 Nov 2024</small>
+                            </div>
+                            <h4 class="text-primary-custom">Nuevas Medidas de Bioseguridad</h4>
+                            <p class="card-text">Implementamos protocolos adicionales de bioseguridad para garantizar la seguridad de nuestros pacientes y personal médico en todas las áreas.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-outline-primary">Leer Completa</button>
+                                <div class="text-muted">
+                                    <i class="fas fa-eye me-1"></i>267 vistas
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Item 6 -->
+                <div class="col-lg-6">
+                    <div class="card card-custom h-100">
+                        <img src="https://images.pexels.com/photos/7579831/pexels-photo-7579831.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                             class="card-img-top" height="250" style="object-fit: cover;" alt="Prevención">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge bg-info">PREVENCIÓN</span>
+                                <small class="text-muted">28 Oct 2024</small>
+                            </div>
+                            <h4 class="text-primary-custom">Charla sobre Diabetes y Nutrición</h4>
+                            <p class="card-text">El próximo viernes realizaremos una charla gratuita sobre prevención de diabetes y hábitos alimenticios saludables. ¡Todos están invitados!</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-outline-primary">Leer Completa</button>
+                                <div class="text-muted">
+                                    <i class="fas fa-eye me-1"></i>134 vistas
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter Subscription -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="card card-custom" style="background: linear-gradient(135deg, #38a169 0%, #2f855a 100%); color: white;">
+                        <div class="card-body p-4">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h3><i class="fas fa-envelope-open me-2"></i>Suscríbete a Nuestro Boletín</h3>
+                                    <p class="mb-0">Recibe las últimas noticias y actualizaciones directamente en tu correo electrónico.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="Tu correo electrónico">
+                                        <button class="btn btn-light" type="button">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <nav aria-label="Paginación de noticias">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Siguiente</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5><i class="fas fa-stethoscope me-2"></i>miPosta</h5>
+                    <p class="text-muted">Sistema moderno de gestión de citas médicas diseñado para mejorar la atención sanitaria.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../paciente/miscitas.html">Mis Citas</a></li>
+                        <li class="mb-2"><a href="campanias.html">Campañas</a></li>
+                        <li class="mb-2"><a href="soporte.html">Soporte</a></li>
+                        <li class="mb-2"><a href="contact.html">Contáctenos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Medicina General</a></li>
+                        <li class="mb-2"><a href="#">Pediatría</a></li>
+                        <li class="mb-2"><a href="#">Cardiología</a></li>
+                        <li class="mb-2"><a href="#">Vacunación</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Av. Salud 123, Lima</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>(01) 234-5678</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>info@miposta.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i>Lun-Vie: 7:00-19:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4" style="opacity: 0.3;">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2024 miPosta. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small class="text-muted">Diseñado con <i class="fas fa-heart text-danger"></i> para la salud</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Newsletter subscription
+        document.querySelector('.input-group button').addEventListener('click', function() {
+            const emailInput = this.previousElementSibling;
+            const email = emailInput.value.trim();
+            
+            if (email && validateEmail(email)) {
+                // Simulate subscription
+                this.innerHTML = '<i class="fas fa-check"></i>';
+                this.classList.remove('btn-light');
+                this.classList.add('btn-success');
+                emailInput.value = '';
+                
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-paper-plane"></i>';
+                    this.classList.remove('btn-success');
+                    this.classList.add('btn-light');
+                }, 2000);
+                
+                // Show success message (you could implement a toast here)
+                console.log('Subscription successful for:', email);
+            } else {
+                emailInput.focus();
+                emailInput.style.borderColor = '#e53e3e';
+                
+                setTimeout(() => {
+                    emailInput.style.borderColor = '';
+                }, 2000);
+            }
+        });
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Card hover animations
+        document.querySelectorAll('.card-custom').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

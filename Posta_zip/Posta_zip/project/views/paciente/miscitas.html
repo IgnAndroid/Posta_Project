@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Citas - miPosta</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="../public/index.html">
+                <i class="fas fa-stethoscope me-2"></i>miPosta
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="miscitas.html">
+                            <i class="fas fa-calendar-alt me-1"></i>Mis Citas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/noticias.html">
+                            <i class="fas fa-newspaper me-1"></i>Noticias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/campanias.html">
+                            <i class="fas fa-bullhorn me-1"></i>Campañas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/soporte.html">
+                            <i class="fas fa-headset me-1"></i>Soporte
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/contact.html">
+                            <i class="fas fa-envelope me-1"></i>Contáctenos
+                        </a>
+                    </li>
+                </ul>
+                <a href="../auth/login.html" class="btn btn-login">
+                    <i class="fas fa-sign-in-alt me-1"></i>Iniciar Sesión
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1><i class="fas fa-calendar-alt me-2"></i>Mis Citas Médicas</h1>
+                    <p class="lead mb-0">Gestiona y revisa todas tus citas programadas</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <button class="btn btn-light me-2">
+                        <i class="fas fa-plus me-1"></i>Agendar Cita
+                    </button>
+                    <button class="btn btn-success-custom">
+                        <i class="fas fa-calendar-week me-1"></i>Ver Calendario
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-4 bg-light-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <label class="form-label">Estado de la Cita</label>
+                                    <select class="form-select" id="filterStatus">
+                                        <option value="">Todos los estados</option>
+                                        <option value="pendiente">Pendientes</option>
+                                        <option value="atendida">Atendidas</option>
+                                        <option value="cancelada">Canceladas</option>
+                                        <option value="reprogramada">Reprogramadas</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Médico</label>
+                                    <select class="form-select" id="filterDoctor">
+                                        <option value="">Todos los médicos</option>
+                                        <option value="dr-perez">Dr. Juan Pérez</option>
+                                        <option value="dra-ruiz">Dra. Ana Ruiz</option>
+                                        <option value="dr-silva">Dr. Pedro Silva</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Fecha Desde</label>
+                                    <input type="date" class="form-control" id="filterDateFrom">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Fecha Hasta</label>
+                                    <input type="date" class="form-control" id="filterDateTo">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointments Section -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Upcoming Appointments -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="card card-custom">
+                        <div class="card-header card-header-custom">
+                            <h4 class="mb-0"><i class="fas fa-clock me-2"></i>Próximas Citas</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Hora</th>
+                                            <th>Médico</th>
+                                            <th>Especialidad</th>
+                                            <th>Motivo</th>
+                                            <th>Estado</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <strong>16/11/2024</strong><br>
+                                                <small class="text-muted">Mañana</small>
+                                            </td>
+                                            <td><strong class="text-primary-custom">09:30 AM</strong></td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                                                         class="rounded-circle me-2" width="35" height="35" alt="Doctor">
+                                                    <div>
+                                                        <strong>Dr. Juan Pérez</strong>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Medicina General</td>
+                                            <td>Control rutinario</td>
+                                            <td><span class="badge-warning-custom">Pendiente</span></td>
+                                            <td>
+                                                <div class="btn-group btn-group-sm" role="group">
+                                                    <button class="btn btn-outline-primary" title="Ver detalles">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-outline-warning" title="Reprogramar">
+                                                        <i class="fas fa-calendar-alt"></i>
+                                                    </button>
+                                                    <button class="btn btn-outline-danger" title="Cancelar">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>18/11/2024</strong><br>
+                                                <small class="text-muted">Lunes</small>
+                                            </td>
+                                            <td><strong class="text-primary-custom">02:15 PM</strong></td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://images.pexels.com/photos/5214413/pexels-photo-5214413.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                                                         class="rounded-circle me-2" width="35" height="35" alt="Doctor">
+                                                    <div>
+                                                        <strong>Dra. Ana Ruiz</strong>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Pediatría</td>
+                                            <td>Vacunación</td>
+                                            <td><span class="badge-warning-custom">Pendiente</span></td>
+                                            <td>
+                                                <div class="btn-group btn-group-sm" role="group">
+                                                    <button class="btn btn-outline-primary" title="Ver detalles">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <button class="btn btn-outline-warning" title="Reprogramar">
+                                                        <i class="fas fa-calendar-alt"></i>
+                                                    </button>
+                                                    <button class="btn btn-outline-danger" title="Cancelar">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Appointments -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-custom">
+                        <div class="card-header" style="background: #f8f9fa;">
+                            <h4 class="mb-0 text-dark"><i class="fas fa-history me-2"></i>Historial de Citas</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Hora</th>
+                                            <th>Médico</th>
+                                            <th>Especialidad</th>
+                                            <th>Motivo</th>
+                                            <th>Estado</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <strong>10/11/2024</strong><br>
+                                                <small class="text-muted">Hace 5 días</small>
+                                            </td>
+                                            <td>10:00 AM</td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                                                         class="rounded-circle me-2" width="35" height="35" alt="Doctor">
+                                                    <div>
+                                                        <strong>Dr. Juan Pérez</strong>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Medicina General</td>
+                                            <td>Dolor de cabeza</td>
+                                            <td><span class="badge-success-custom">Atendida</span></td>
+                                            <td>
+                                                <button class="btn btn-outline-primary btn-sm" title="Ver receta">
+                                                    <i class="fas fa-file-medical"></i>
+                                                </button>
+                                                <button class="btn btn-outline-success btn-sm" title="Descargar resultado">
+                                                    <i class="fas fa-download"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>05/11/2024</strong><br>
+                                                <small class="text-muted">Hace 10 días</small>
+                                            </td>
+                                            <td>03:30 PM</td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://images.pexels.com/photos/6749775/pexels-photo-6749775.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                                                         class="rounded-circle me-2" width="35" height="35" alt="Doctor">
+                                                    <div>
+                                                        <strong>Dr. Pedro Silva</strong>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Cardiología</td>
+                                            <td>Electrocardiograma</td>
+                                            <td><span class="badge-success-custom">Atendida</span></td>
+                                            <td>
+                                                <button class="btn btn-outline-primary btn-sm" title="Ver receta">
+                                                    <i class="fas fa-file-medical"></i>
+                                                </button>
+                                                <button class="btn btn-outline-success btn-sm" title="Descargar resultado">
+                                                    <i class="fas fa-download"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>28/10/2024</strong><br>
+                                                <small class="text-muted">Hace 18 días</small>
+                                            </td>
+                                            <td>11:45 AM</td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://images.pexels.com/photos/5214413/pexels-photo-5214413.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                                                         class="rounded-circle me-2" width="35" height="35" alt="Doctor">
+                                                    <div>
+                                                        <strong>Dra. Ana Ruiz</strong>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Pediatría</td>
+                                            <td>Control de peso y talla</td>
+                                            <td><span class="badge-danger-custom">Cancelada</span></td>
+                                            <td>
+                                                <button class="btn btn-outline-secondary btn-sm" title="Reagendar">
+                                                    <i class="fas fa-calendar-plus"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>15/10/2024</strong><br>
+                                                <small class="text-muted">Hace 1 mes</small>
+                                            </td>
+                                            <td>08:15 AM</td>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                                                         class="rounded-circle me-2" width="35" height="35" alt="Doctor">
+                                                    <div>
+                                                        <strong>Dr. Juan Pérez</strong>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>Medicina General</td>
+                                            <td>Chequeo general</td>
+                                            <td><span class="badge-success-custom">Atendida</span></td>
+                                            <td>
+                                                <button class="btn btn-outline-primary btn-sm" title="Ver receta">
+                                                    <i class="fas fa-file-medical"></i>
+                                                </button>
+                                                <button class="btn btn-outline-success btn-sm" title="Descargar resultado">
+                                                    <i class="fas fa-download"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <nav aria-label="Paginación de citas">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Siguiente</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5><i class="fas fa-stethoscope me-2"></i>miPosta</h5>
+                    <p class="text-muted">Sistema moderno de gestión de citas médicas diseñado para mejorar la atención sanitaria.</p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="noticias.html">Noticias</a></li>
+                        <li class="mb-2"><a href="campanias.html">Campañas</a></li>
+                        <li class="mb-2"><a href="soporte.html">Soporte</a></li>
+                        <li class="mb-2"><a href="contact.html">Contáctenos</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12 mb-4">
+                    <h5>Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>(01) 234-5678</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>info@miposta.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i>Lun-Vie: 7:00-19:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4" style="opacity: 0.3;">
+            <div class="text-center">
+                <p class="text-muted mb-0">&copy; 2024 miPosta. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterStatus = document.getElementById('filterStatus');
+            const filterDoctor = document.getElementById('filterDoctor');
+            const filterDateFrom = document.getElementById('filterDateFrom');
+            const filterDateTo = document.getElementById('filterDateTo');
+
+            function applyFilters() {
+                // This would typically filter the table rows
+                console.log('Applying filters...');
+                // Implementation would depend on whether you're using client-side or server-side filtering
+            }
+
+            [filterStatus, filterDoctor, filterDateFrom, filterDateTo].forEach(filter => {
+                filter.addEventListener('change', applyFilters);
+            });
+
+            // Set today's date as default for date filters
+            const today = new Date().toISOString().split('T')[0];
+            filterDateFrom.value = today;
+        });
+
+        // Table row hover effect
+        document.querySelectorAll('table tbody tr').forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#f8f9fa';
+            });
+            
+            row.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '';
+            });
+        });
+    </script>
+</body>
+</html>

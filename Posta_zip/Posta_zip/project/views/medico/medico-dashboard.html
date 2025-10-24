@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Médico - miPosta</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="../public/index.html">
+                <i class="fas fa-stethoscope me-2"></i>miPosta
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../paciente/miscitas.html">
+                            <i class="fas fa-calendar-alt me-1"></i>Mis Citas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/noticias.html">
+                            <i class="fas fa-newspaper me-1"></i>Noticias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/contact.html">
+                            <i class="fas fa-envelope me-1"></i>Contáctenos
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="dropdown">
+                    <button class="btn btn-login dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user-md me-1"></i>Dr. Juan Pérez
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Mi Perfil</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-clock me-2"></i>Mi Horario</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="../public/index.html"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1><i class="fas fa-user-md me-2"></i>Panel Médico</h1>
+                    <p class="lead mb-0">Bienvenido Dr. Juan Pérez - Medicina General</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <div class="d-flex justify-content-md-end gap-2">
+                        <button class="btn btn-light">
+                            <i class="fas fa-calendar me-1"></i>Hoy: 16/11/2024
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Today's Stats -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card">
+                        <div class="stats-number">8</div>
+                        <div class="stats-label">Citas Hoy</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card" style="background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);">
+                        <div class="stats-number">5</div>
+                        <div class="stats-label">Atendidas</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card" style="background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);">
+                        <div class="stats-number">3</div>
+                        <div class="stats-label">Pendientes</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card" style="background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);">
+                        <div class="stats-number">45</div>
+                        <div class="stats-label">min promedio</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Today's Appointments -->
+                <div class="col-lg-8">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="text-primary-custom"><i class="fas fa-calendar-day me-2"></i>Citas de Hoy</h4>
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-outline-primary btn-sm active">Hoy</button>
+                                <button class="btn btn-outline-primary btn-sm">Mañana</button>
+                                <button class="btn btn-outline-primary btn-sm">Semana</button>
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th>Hora</th>
+                                        <th>Paciente</th>
+                                        <th>Motivo</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>08:00 AM</strong></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                                                     class="rounded-circle me-2" width="35" height="35" alt="Paciente">
+                                                <div>
+                                                    <strong>María García</strong><br>
+                                                    <small class="text-muted">35 años</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Control general</td>
+                                        <td><span class="badge-success-custom">Atendida</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#patientHistoryModal">
+                                                <i class="fas fa-file-medical"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>09:30 AM</strong></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                                                     class="rounded-circle me-2" width="35" height="35" alt="Paciente">
+                                                <div>
+                                                    <strong>Carlos López</strong><br>
+                                                    <small class="text-muted">42 años</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Dolor de cabeza</td>
+                                        <td><span class="badge-success-custom">Atendida</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">
+                                                <i class="fas fa-file-medical"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="table-warning">
+                                        <td><strong>11:00 AM</strong></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                                                     class="rounded-circle me-2" width="35" height="35" alt="Paciente">
+                                                <div>
+                                                    <strong>Laura Martínez</strong><br>
+                                                    <small class="text-muted">28 años</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Vacunación</td>
+                                        <td><span class="badge-warning-custom">Siguiente</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-success-custom" onclick="markAsAttended(this)">
+                                                <i class="fas fa-check me-1"></i>Atender
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>02:30 PM</strong></td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=60" 
+                                                     class="rounded-circle me-2" width="35" height="35" alt="Paciente">
+                                                <div>
+                                                    <strong>Ana Rodríguez</strong><br>
+                                                    <small class="text-muted">52 años</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Revisión médica</td>
+                                        <td><span class="badge-warning-custom">Pendiente</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-warning">
+                                                <i class="fas fa-calendar me-1"></i>Reagendar
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Tools -->
+                <div class="col-lg-4">
+                    <div class="dashboard-card">
+                        <h4 class="text-primary-custom mb-4"><i class="fas fa-medical-kit me-2"></i>Herramientas Médicas</h4>
+                        
+                        <div class="d-grid gap-3">
+                            <button class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#prescriptionModal">
+                                <i class="fas fa-prescription me-2"></i>Nueva Receta
+                            </button>
+                            <button class="btn btn-success-custom" data-bs-toggle="modal" data-bs-target="#medicalNoteModal">
+                                <i class="fas fa-notes-medical me-2"></i>Nota Médica
+                            </button>
+                            <button class="btn btn-info" style="color: white;">
+                                <i class="fas fa-clipboard-list me-2"></i>Lista de Espera
+                            </button>
+                            <button class="btn btn-warning" style="color: white;">
+                                <i class="fas fa-user-injured me-2"></i>Urgencias
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="dashboard-card mt-4">
+                        <h5 class="text-primary-custom mb-3"><i class="fas fa-chart-line me-2"></i>Estadísticas</h5>
+                        
+                        <div class="row text-center">
+                            <div class="col-6 mb-3">
+                                <h4 class="text-success-custom">89</h4>
+                                <small class="text-muted">Citas Mensuales</small>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <h4 class="text-primary-custom">4.8</h4>
+                                <small class="text-muted">Valoración</small>
+                            </div>
+                            <div class="col-6">
+                                <h4 class="text-warning">12</h4>
+                                <small class="text-muted">Pacientes Nuevos</small>
+                            </div>
+                            <div class="col-6">
+                                <h4 class="text-info">98%</h4>
+                                <small class="text-muted">Puntualidad</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Notes -->
+                    <div class="dashboard-card mt-4">
+                        <h5 class="text-primary-custom mb-3"><i class="fas fa-sticky-note me-2"></i>Notas Rápidas</h5>
+                        
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="4" placeholder="Escribe una nota rápida..."></textarea>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-outline-primary btn-sm">
+                                <i class="fas fa-save me-1"></i>Guardar
+                            </button>
+                            <button class="btn btn-outline-secondary btn-sm">
+                                <i class="fas fa-list me-1"></i>Ver Todas
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patient History Modal -->
+    <div class="modal fade" id="patientHistoryModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="background: var(--primary-blue); color: white;">
+                    <h5 class="modal-title"><i class="fas fa-file-medical me-2"></i>Historial del Paciente</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=200" 
+                                 class="rounded-circle mb-3" width="120" height="120" alt="Paciente">
+                            <h5>María García</h5>
+                            <p class="text-muted">35 años | F</p>
+                        </div>
+                        <div class="col-md-8">
+                            <h6 class="text-primary-custom">Información Personal</h6>
+                            <div class="row mb-3">
+                                <div class="col-6"><strong>DNI:</strong> 12345678</div>
+                                <div class="col-6"><strong>Teléfono:</strong> 987-654-321</div>
+                                <div class="col-6"><strong>Sangre:</strong> O+</div>
+                                <div class="col-6"><strong>Alergias:</strong> Ninguna</div>
+                            </div>
+                            
+                            <h6 class="text-primary-custom">Consultas Recientes</h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Motivo</th>
+                                            <th>Diagnóstico</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>10/11/2024</td>
+                                            <td>Control</td>
+                                            <td>Estado general bueno</td>
+                                        </tr>
+                                        <tr>
+                                            <td>15/10/2024</td>
+                                            <td>Dolor de garganta</td>
+                                            <td>Faringitis viral</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary-custom">Agregar Consulta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        function markAsAttended(button) {
+            const row = button.closest('tr');
+            const statusCell = row.querySelector('td:nth-child(4)');
+            
+            // Update status
+            statusCell.innerHTML = '<span class="badge-success-custom">Atendida</span>';
+            
+            // Update button
+            button.innerHTML = '<i class="fas fa-file-medical"></i>';
+            button.className = 'btn btn-sm btn-outline-primary';
+            button.onclick = null;
+            
+            // Remove highlight
+            row.classList.remove('table-warning');
+            
+            // Show success message
+            showToast('Cita marcada como atendida', 'success');
+        }
+
+        function showToast(message, type) {
+            // Create toast element
+            const toastContainer = document.getElementById('toastContainer') || createToastContainer();
+            const toast = document.createElement('div');
+            toast.className = `toast align-items-center text-white bg-${type === 'success' ? 'success' : 'danger'} border-0`;
+            toast.setAttribute('role', 'alert');
+            toast.innerHTML = `
+                <div class="d-flex">
+                    <div class="toast-body">
+                        <i class="fas fa-${type === 'success' ? 'check' : 'exclamation'}-circle me-2"></i>
+                        ${message}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                </div>
+            `;
+            
+            toastContainer.appendChild(toast);
+            const bsToast = new bootstrap.Toast(toast);
+            bsToast.show();
+            
+            // Remove toast after it's hidden
+            toast.addEventListener('hidden.bs.toast', () => {
+                toast.remove();
+            });
+        }
+
+        function createToastContainer() {
+            const container = document.createElement('div');
+            container.id = 'toastContainer';
+            container.className = 'toast-container position-fixed bottom-0 end-0 p-3';
+            container.style.zIndex = '9999';
+            document.body.appendChild(container);
+            return container;
+        }
+
+        // Auto-refresh appointments every 5 minutes
+        setInterval(() => {
+            console.log('Refreshing appointments data...');
+            // Here you would typically fetch new data from the server
+        }, 300000);
+    </script>
+</body>
+</html>

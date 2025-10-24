@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrador - miPosta</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="../public/index.html">
+                <i class="fas fa-stethoscope me-2"></i>miPosta
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../paciente/miscitas.html">
+                            <i class="fas fa-calendar-alt me-1"></i>Mis Citas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/noticias.html">
+                            <i class="fas fa-newspaper me-1"></i>Noticias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../public/contact.html">
+                            <i class="fas fa-envelope me-1"></i>Contáctenos
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="dropdown">
+                    <button class="btn btn-login dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user-shield me-1"></i>Administrador
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Mi Perfil</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="../public/index.html"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1><i class="fas fa-tachometer-alt me-2"></i>Panel de Administración</h1>
+                    <p class="lead mb-0">Gestiona todas las operaciones del sistema médico</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <button class="btn btn-light me-2" data-bs-toggle="modal" data-bs-target="#newAppointmentModal">
+                        <i class="fas fa-plus me-1"></i>Nueva Cita
+                    </button>
+                    <button class="btn btn-success-custom">
+                        <i class="fas fa-download me-1"></i>Exportar Datos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Cards -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card">
+                        <div class="stats-number">247</div>
+                        <div class="stats-label">Total Citas</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card" style="background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);">
+                        <div class="stats-number">189</div>
+                        <div class="stats-label">Citas Atendidas</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card" style="background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);">
+                        <div class="stats-number">32</div>
+                        <div class="stats-label">Pendientes</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card" style="background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);">
+                        <div class="stats-number">26</div>
+                        <div class="stats-label">Canceladas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Recent Appointments -->
+                <div class="col-lg-8">
+                    <div class="dashboard-card">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="text-primary-custom"><i class="fas fa-calendar-check me-2"></i>Citas Recientes</h4>
+                            <button class="btn btn-outline-primary btn-sm">Ver Todas</button>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th>Paciente</th>
+                                        <th>Médico</th>
+                                        <th>Fecha</th>
+                                        <th>Hora</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100" 
+                                                     class="rounded-circle me-2" width="40" height="40" alt="Paciente">
+                                                <div>
+                                                    <strong>María García</strong><br>
+                                                    <small class="text-muted">DNI: 12345678</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Dr. Juan Pérez</td>
+                                        <td>15/11/2024</td>
+                                        <td>09:30 AM</td>
+                                        <td><span class="badge-success-custom">Atendida</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" title="Ver detalles">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-warning" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=100" 
+                                                     class="rounded-circle me-2" width="40" height="40" alt="Paciente">
+                                                <div>
+                                                    <strong>Carlos López</strong><br>
+                                                    <small class="text-muted">DNI: 87654321</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Dra. Ana Ruiz</td>
+                                        <td>16/11/2024</td>
+                                        <td>11:00 AM</td>
+                                        <td><span class="badge-warning-custom">Pendiente</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" title="Ver detalles">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-warning" title="Editar">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100" 
+                                                     class="rounded-circle me-2" width="40" height="40" alt="Paciente">
+                                                <div>
+                                                    <strong>Laura Martínez</strong><br>
+                                                    <small class="text-muted">DNI: 11223344</small>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Dr. Pedro Silva</td>
+                                        <td>14/11/2024</td>
+                                        <td>03:15 PM</td>
+                                        <td><span class="badge-danger-custom">Cancelada</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" title="Ver detalles">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-success" title="Reagendar">
+                                                <i class="fas fa-redo"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="col-lg-4">
+                    <div class="dashboard-card">
+                        <h4 class="text-primary-custom mb-4"><i class="fas fa-bolt me-2"></i>Acciones Rápidas</h4>
+                        
+                        <div class="d-grid gap-3">
+                            <button class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#scheduleModal">
+                                <i class="fas fa-calendar-plus me-2"></i>Gestionar Horarios
+                            </button>
+                            <button class="btn btn-success-custom" data-bs-toggle="modal" data-bs-target="#doctorModal">
+                                <i class="fas fa-user-md me-2"></i>Administrar Médicos
+                            </button>
+                            <button class="btn btn-info" style="color: white;">
+                                <i class="fas fa-chart-bar me-2"></i>Ver Reportes
+                            </button>
+                            <button class="btn btn-warning" style="color: white;">
+                                <i class="fas fa-bell me-2"></i>Configurar Alertas
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="dashboard-card mt-4">
+                        <h5 class="text-primary-custom mb-3"><i class="fas fa-clock me-2"></i>Actividad Reciente</h5>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item mb-3">
+                                <div class="timeline-marker bg-success"></div>
+                                <div class="timeline-content">
+                                    <h6 class="mb-1">Nueva cita registrada</h6>
+                                    <p class="text-muted mb-1">María García - 16/11/2024</p>
+                                    <small class="text-muted">Hace 5 minutos</small>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item mb-3">
+                                <div class="timeline-marker bg-warning"></div>
+                                <div class="timeline-content">
+                                    <h6 class="mb-1">Cita reprogramada</h6>
+                                    <p class="text-muted mb-1">Carlos López - 17/11/2024</p>
+                                    <small class="text-muted">Hace 15 minutos</small>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item mb-3">
+                                <div class="timeline-marker bg-primary"></div>
+                                <div class="timeline-content">
+                                    <h6 class="mb-1">Nuevo médico registrado</h6>
+                                    <p class="text-muted mb-1">Dra. Carmen Flores</p>
+                                    <small class="text-muted">Hace 1 hora</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Appointment Modal -->
+    <div class="modal fade" id="newAppointmentModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background: var(--primary-blue); color: white;">
+                    <h5 class="modal-title"><i class="fas fa-plus me-2"></i>Nueva Cita</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Paciente</label>
+                            <input type="text" class="form-control" placeholder="Nombre del paciente">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Médico</label>
+                            <select class="form-select">
+                                <option>Dr. Juan Pérez - Medicina General</option>
+                                <option>Dra. Ana Ruiz - Pediatría</option>
+                                <option>Dr. Pedro Silva - Cardiología</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Fecha</label>
+                                    <input type="date" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Hora</label>
+                                    <input type="time" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Motivo de consulta</label>
+                            <textarea class="form-control" rows="3" placeholder="Describa el motivo..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary-custom">Registrar Cita</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Chart.js integration could go here
+        // Dashboard real-time updates
+        
+        // Simulate real-time updates
+        setInterval(() => {
+            const statsNumbers = document.querySelectorAll('.stats-number');
+            statsNumbers.forEach(stat => {
+                const currentValue = parseInt(stat.textContent);
+                if (Math.random() > 0.7) { // 30% chance to update
+                    stat.textContent = currentValue + (Math.random() > 0.5 ? 1 : -1);
+                }
+            });
+        }, 30000); // Update every 30 seconds
+
+        // Add timeline styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .timeline-item {
+                position: relative;
+                padding-left: 30px;
+            }
+            .timeline-marker {
+                position: absolute;
+                left: 0;
+                top: 5px;
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+            }
+            .timeline-content h6 {
+                font-size: 0.9rem;
+                font-weight: 600;
+            }
+            .timeline-content p {
+                font-size: 0.8rem;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
