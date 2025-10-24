@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>miPosta - Sistema de Citas Médicas</title>
+    
+    <!-- Entry point for Vite -->
+    <script type="module" src="/assets/js/main.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-stethoscope me-2"></i>miPosta
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../paciente/miscitas.html">
+                            <i class="fas fa-calendar-alt me-1"></i>Mis Citas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="noticias.html">
+                            <i class="fas fa-newspaper me-1"></i>Noticias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="campanias.html">
+                            <i class="fas fa-bullhorn me-1"></i>Campañas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="soporte.html">
+                            <i class="fas fa-headset me-1"></i>Soporte
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-envelope me-1"></i>Contáctenos
+                        </a>
+                    </li>
+                </ul>
+                <a href="../auth/login.html" class="btn btn-login">
+                    <i class="fas fa-sign-in-alt me-1"></i>Iniciar Sesión
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Bienvenido a miPosta</h1>
+                <p class="lead">Sistema moderno de gestión de citas médicas para una atención de calidad</p>
+                <a href="../auth/login.html" class="btn btn-hero btn-lg">
+                    <i class="fas fa-user-md me-2"></i>Acceder al Sistema
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section-padding bg-light-custom">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="text-primary-custom fw-bold mb-3">¿Por qué elegir miPosta?</h2>
+                    <p class="lead text-muted">Un sistema integral diseñado para optimizar la gestión médica</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card card-custom h-100 text-center">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-calendar-check text-primary-custom" style="font-size: 3rem;"></i>
+                            </div>
+                            <h5 class="card-title">Gestión de Citas</h5>
+                            <p class="card-text">Administra todas las citas médicas de forma organizada y eficiente con nuestro sistema intuitivo.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card card-custom h-100 text-center">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-users text-success-custom" style="font-size: 3rem;"></i>
+                            </div>
+                            <h5 class="card-title">Multi-Usuario</h5>
+                            <p class="card-text">Diseñado para Administradores y Personal Médico con interfaces especializadas para cada rol.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card card-custom h-100 text-center">
+                        <div class="card-body p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-chart-line text-primary-custom" style="font-size: 3rem;"></i>
+                            </div>
+                            <h5 class="card-title">Reportes</h5>
+                            <p class="card-text">Genera reportes detallados de citas atendidas, canceladas y estadísticas de la posta médica.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="text-primary-custom fw-bold mb-3">Nuestros Servicios</h2>
+                    <p class="lead text-muted">Atención médica integral para toda la familia</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card card-custom h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-user-md text-primary-custom mb-3" style="font-size: 2.5rem;"></i>
+                            <h6 class="card-title">Medicina General</h6>
+                            <p class="card-text text-muted">Consultas médicas generales y chequeos preventivos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card card-custom h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-syringe text-success-custom mb-3" style="font-size: 2.5rem;"></i>
+                            <h6 class="card-title">Vacunación</h6>
+                            <p class="card-text text-muted">Programas de vacunación para todas las edades</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card card-custom h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-baby text-primary-custom mb-3" style="font-size: 2.5rem;"></i>
+                            <h6 class="card-title">Pediatría</h6>
+                            <p class="card-text text-muted">Atención especializada para niños y adolescentes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="card card-custom h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-heartbeat text-success-custom mb-3" style="font-size: 2.5rem;"></i>
+                            <h6 class="card-title">Cardiología</h6>
+                            <p class="card-text text-muted">Control y tratamiento de enfermedades cardiovasculares</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding" style="background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h2 class="text-white fw-bold mb-3">¿Listo para comenzar?</h2>
+                    <p class="text-white mb-4 lead">Únete a miPosta y experimenta una nueva forma de gestionar citas médicas</p>
+                    <a href="../auth/login.html" class="btn btn-success-custom btn-lg me-3">
+                        <i class="fas fa-rocket me-2"></i>Comenzar Ahora
+                    </a>
+                    <a href="contact.html" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-phone me-2"></i>Contactar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5><i class="fas fa-stethoscope me-2"></i>miPosta</h5>
+                    <p class="text-muted">Sistema moderno de gestión de citas médicas diseñado para mejorar la atención sanitaria y optimizar los procesos administrativos.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../paciente/miscitas.html">Mis Citas</a></li>
+                        <li class="mb-2"><a href="noticias.html">Noticias</a></li>
+                        <li class="mb-2"><a href="campanias.html">Campañas</a></li>
+                        <li class="mb-2"><a href="soporte.html">Soporte</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Medicina General</a></li>
+                        <li class="mb-2"><a href="#">Pediatría</a></li>
+                        <li class="mb-2"><a href="#">Cardiología</a></li>
+                        <li class="mb-2"><a href="#">Vacunación</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Av. Salud 123, Lima</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>(01) 234-5678</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>info@miposta.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i>Lun-Vie: 7:00-19:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-4" style="opacity: 0.3;">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2024 miPosta. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small class="text-muted">Diseñado con <i class="fas fa-heart text-danger"></i> para la salud</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.3s';
+                    entry.target.style.animationDuration = '0.8s';
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
