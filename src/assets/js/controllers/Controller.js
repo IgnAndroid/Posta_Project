@@ -1,4 +1,4 @@
-// Base Controller following Template Method pattern
+// Controlador base que otros controladores 
 export class Controller {
     constructor(service) {
         if (new.target === Controller) {

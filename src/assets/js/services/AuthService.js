@@ -4,25 +4,15 @@
  * Sigue los principios SOLID de Responsabilidad Única y Abierto/Cerrado
  */
 export class AuthService {
-    /**
-     * Constructor del servicio de autenticación
-     * @param {Storage} storage - Almacenamiento para persistir la sesión (por defecto localStorage)
-     */
+    // Constructor que inicializa el almacenamiento y el usuario actual
     constructor(storage = localStorage) {
         this.storage = storage;
         this.currentUser = null;
     }
 
-    /**
-     * Inicia sesión con las credenciales proporcionadas
-     * @param {string} email - Correo electrónico del usuario
-     * @param {string} password - Contraseña del usuario
-     * @param {string} role - Rol del usuario ('admin' o 'medico')
-     * @returns {Promise<Object>} - Datos del usuario autenticado
-     * @throws {Error} - Si las credenciales son inválidas
-     */
+    // Inicia sesión con las credenciales proporcionadas
     async login(email, password, role) {
-        // Simulación de autenticación
+        // Autenticación 
         if (role === 'admin' && email === 'admin@miposta.com' && password === 'admin123') {
             const user = { id: 1, email, role: 'admin', name: 'Administrador' };
             this.storage.setItem('currentUser', JSON.stringify(user));
@@ -40,18 +30,13 @@ export class AuthService {
         throw new Error('Credenciales inválidas');
     }
 
-    /**
-     * Cierra la sesión del usuario actual
-     */
+    // Cierra la sesión del usuario actual
     logout() {
         this.storage.removeItem('currentUser');
         this.currentUser = null;
     }
 
-    /**
-     * Obtiene el usuario actualmente autenticado
-     * @returns {Object|null} - Datos del usuario o null si no hay sesión
-     */
+    // Obtiene el usuario actualmente autenticado
     getCurrentUser() {
         if (!this.currentUser) {
             const stored = this.storage.getItem('currentUser');
@@ -62,19 +47,12 @@ export class AuthService {
         return this.currentUser;
     }
 
-    /**
-     * Verifica si hay un usuario autenticado
-     * @returns {boolean} - true si hay un usuario autenticado, false en caso contrario
-     */
+    // Verifica si hay un usuario autenticado
     isAuthenticated() {
         return !!this.getCurrentUser();
     }
 
-    /**
-     * Verifica si el usuario actual tiene un rol específico
-     * @param {string} role - Rol a verificar
-     * @returns {boolean} - true si el usuario tiene el rol especificado, false en caso contrario
-     */
+    // Verifica si el usuario tiene un rol específico
     hasRole(role) {
         const user = this.getCurrentUser();
         return user && user.role === role;

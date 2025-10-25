@@ -1,61 +1,36 @@
-/**
- * Utilidades generales del proyecto
- * Contiene validaciones y utilidades de UI usadas por las vistas
- * Exporta dos objetos con funciones nombradas: ValidationUtils y UIUtils
- */
+// Utilidades generales para la aplicación
+// Te enfoca en el manejo de validaciones y pequeñas ayudas para la UI
+// Funciones reutilizables para validación de datos
 
-/**
- * Funciones de validación simples y reutilizables
- */
 export const ValidationUtils = {
-    /**
-     * Valida formato básico de correo electrónico
-     * @param {string} email
-     * @returns {boolean}
-     */
+    // Verifica si una cadena es un email válido
     isEmail(email) {
         return typeof email === 'string' && /\S+@\S+\.\S+/.test(email);
     },
 
-    /**
-     * Verifica que un valor no sea nulo/indefinido y contenga algún carácter visible
-     * @param {*} value
-     * @returns {boolean}
-     */
+    // Verifica si un valor no es nulo, indefinido o vacío
     isNotEmpty(value) {
         return value !== null && value !== undefined && String(value).trim().length > 0;
     },
 
-    /**
-     * Valida datos de login mínimos (email y password)
-     * Lanza Error con mensaje en caso de fallo
-     * @param {{email:string,password:string}} data
-     * @returns {boolean}
-     */
+    // Valida un objeto de datos de login
     validateLoginData(data) {
-        if (!data || typeof data !== 'object') {
+        if (!data || typeof data !== 'object') { // Verifica si data es un objeto
             throw new Error('Datos inválidos');
         }
-        if (!this.isEmail(data.email)) {
+        if (!this.isEmail(data.email)) { // Verifica si el email es válido
             throw new Error('Correo electrónico inválido');
         }
-        if (!this.isNotEmpty(data.password)) {
+        if (!this.isNotEmpty(data.password)) { // Verifica si la contraseña no está vacía
             throw new Error('Contraseña requerida');
         }
         return true;
     }
 };
 
-/**
- * Utilidades para la interfaz de usuario (pequeños helpers DOM)
- */
+// Utilidades para la interfaz de usuario (UI)
 export const UIUtils = {
-    /**
-     * Muestra un estado de carga en un botón y lo deshabilita.
-     * Devuelve el texto/HTML original del botón para restaurarlo luego.
-     * @param {HTMLElement} button
-     * @returns {string|null} texto original
-     */
+    // Muestra un indicador de carga en un botón y lo deshabilita
     showLoading(button) {
         if (!button) return null;
         const original = button.innerHTML;
@@ -70,11 +45,7 @@ export const UIUtils = {
         return original;
     },
 
-    /**
-     * Restaura el texto/HTML original del botón y lo habilita
-     * @param {HTMLElement} button
-     * @param {string|null} originalText
-     */
+    // Restaura el botón a su estado original y lo habilita
     hideLoading(button, originalText) {
         if (!button) return;
         try {

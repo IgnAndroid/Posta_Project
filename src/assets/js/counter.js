@@ -1,3 +1,4 @@
+// Es solo un contador simple que aumenta el valor cada vez que se hace clic en el elemento dado.
 export function setupCounter(element) {
   let counter = 0
   const setCounter = (count) => {

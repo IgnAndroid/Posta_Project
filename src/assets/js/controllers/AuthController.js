@@ -1,12 +1,14 @@
 import { Controller } from './Controller.js';
 import { AuthService } from '../services/AuthService.js';
 
-// Auth Controller following Single Responsibility
+// Controlador de Autenticación siguiendo el principio de Responsabilidad Única
 export class AuthController extends Controller {
+    // Constructor que inicializa el servicio de autenticación
     constructor() {
         super(new AuthService());
     }
 
+    // Validación de formulario de login
     validateForm(formData) {
         if (!formData.email || !formData.email.includes('@')) {
             throw new Error('Email inválido');
@@ -20,6 +22,7 @@ export class AuthController extends Controller {
         return true;
     }
 
+    // Controlador de inicio de sesión
     async login(formData) {
         try {
             this.validateForm(formData);
@@ -41,11 +44,13 @@ export class AuthController extends Controller {
         }
     }
 
+    // Controlador de cierre de sesión
     logout() {
         this.service.logout();
         window.location.href = '../public/index.html';
     }
 
+    // Controlador de verificación de autenticación
     checkAuth() {
         const user = this.service.getCurrentUser();
         if (!user) {
@@ -55,6 +60,7 @@ export class AuthController extends Controller {
         return true;
     }
 
+    // Controlador de verificación de rol
     checkRole(allowedRoles) {
         const user = this.service.getCurrentUser();
         if (!user || !allowedRoles.includes(user.role)) {

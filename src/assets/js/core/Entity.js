@@ -1,14 +1,7 @@
-/**
- * Clase base Entity
- * Define la estructura básica para todas las entidades del dominio
- * Sigue el Principio de Segregación de Interfaces (ISP) de SOLID
- */
+// Clase Entity que sirve como base para otras entidades
+// Siguiendo el principio de segregación de interfaces (Interface Segregation Principle)
 export class Entity {
-    /**
-     * Constructor de la clase Entity
-     * @param {number|string} id - Identificador único de la entidad
-     * @throws {TypeError} Si se intenta instanciar directamente
-     */
+    // Constructor que inicializa la entidad con un ID
     constructor(id) {
         if (new.target === Entity) {
             throw new TypeError("No se pueden construir instancias de Entity directamente");
@@ -16,19 +9,12 @@ export class Entity {
         this.id = id;
     }
 
-    /**
-     * Valida la entidad
-     * @returns {boolean} true si la entidad es válida
-     * @throws {Error} Si el método no está implementado
-     */
+    // Método para validar la entidad
     validate() {
         throw new Error("El método 'validate()' debe ser implementado");
     }
 
-    /**
-     * Convierte la entidad a formato JSON
-     * @returns {Object} Representación JSON de la entidad
-     */
+    // Aqui solo se incluye el metodo toJSON como ejemplo de otro posible metodo
     toJSON() {
         return {
             id: this.id

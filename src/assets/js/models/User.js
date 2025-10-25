@@ -1,18 +1,10 @@
 import { Entity } from '../core/Entity.js';
 
-/**
- * Modelo de Usuario
- * Representa un usuario del sistema con sus datos básicos y rol
- * Sigue el Principio de Responsabilidad Única (SRP) de SOLID
- */
+// Clase que representa un Usuario
+// Siguiendo el principio de responsabilidad única
+
 export class User extends Entity {
-    /**
-     * Constructor de Usuario
-     * @param {string} id - Identificador único del usuario
-     * @param {string} gmail - Correo electrónico del usuario
-     * @param {string} nombre - Nombre completo del usuario
-     * @param {string} role - Rol del usuario ('admin', 'medico', 'paciente')
-     */
+    // Constructor que inicializa el usuario
     constructor(id, gmail, nombre, role){
         super(id);
         this.gmail = gmail;
@@ -20,11 +12,7 @@ export class User extends Entity {
         this.role = role;
     }
 
-    /**
-     * Valida los datos del usuario
-     * @returns {boolean} true si los datos son válidos
-     * @throws {Error} Si algún campo es inválido
-     */
+    // Validar los datos del usuario
     validate() {
         if (!this.gmail || !this.gmail.includes('@')) {
             throw new Error('Correo electrónico inválido');
@@ -38,10 +26,7 @@ export class User extends Entity {
         return true;
     }
 
-    /**
-     * Convierte el usuario a formato JSON
-     * @returns {Object} Representación JSON del usuario
-     */
+    // Convertir el usuario a formato JSON
     toJSON() {
         return {
             ...super.toJSON(),
@@ -52,20 +37,12 @@ export class User extends Entity {
     }
 }
 
-/**
- * Fábrica de Usuarios
- * Implementa el patrón Factory para la creación de usuarios
- */
-export class UserFactory {
-    /**
-     * Crea una nueva instancia de Usuario
-     * @param {Object} data - Datos del usuario
-     * @param {string} [data.id] - ID del usuario (opcional)
-     * @param {string} data.gmail - Correo electrónico
-     * @param {string} data.nombre - Nombre del usuario
-     * @param {string} [data.role='paciente'] - Rol del usuario
-     * @returns {User} Nueva instancia de Usuario
-     */
+// Fábrica para crear instancias de Usuario
+// Siguiendo el patron factory
+export class UserFactory 
+
+{
+    // Crea una nueva instancia de Usuario
     static createUser(data) {
         return new User(
             data.id || crypto.randomUUID(),

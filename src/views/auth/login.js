@@ -1,7 +1,7 @@
 import { AuthController } from '../../assets/js/controllers/AuthController.js';
 import { ValidationUtils, UIUtils } from '../../assets/js/utils/utils.js';
 
-// Login page controller following Single Responsibility
+// Pagina de control aplicando el principio de responsabilidad unica
 class LoginPage {
     constructor() {
         this.authController = new AuthController();
@@ -9,6 +9,7 @@ class LoginPage {
         this.setupEventListeners();
     }
 
+    // Manejo de eventos
     setupEventListeners() {
         this.form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -32,11 +33,12 @@ class LoginPage {
             }
         });
 
-        // Demo credentials auto-fill
+        // Autocompletado de credenciales basado en el rol seleccionado
         const roleSelect = this.form.role;
         roleSelect.addEventListener('change', this.handleRoleChange.bind(this));
     }
 
+    // Manejo del cambio de rol
     handleRoleChange(event) {
         const role = event.target.value;
         const emailInput = this.form.email;
@@ -55,7 +57,7 @@ class LoginPage {
     }
 }
 
-// Initialize on DOM load
+// Inicialización de la página de login (cuando el DOM esté listo)
 document.addEventListener('DOMContentLoaded', () => {
     new LoginPage();
 });
