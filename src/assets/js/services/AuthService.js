@@ -1,8 +1,5 @@
-/**
- * Servicio de Autenticación
- * Maneja la autenticación y gestión de sesiones de usuarios
- * Sigue los principios SOLID de Responsabilidad Única y Abierto/Cerrado
- */
+// Servicio de autenticación para manejar el inicio y cierre de sesión de usuarios
+// Siguiendo el principio de responsabilidad abierta/cerrada (Open/Closed Principle)
 export class AuthService {
     // Constructor que inicializa el almacenamiento y el usuario actual
     constructor(storage = localStorage) {
