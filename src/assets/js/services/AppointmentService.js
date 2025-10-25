@@ -1,11 +1,11 @@
 import { Repository } from '../core/Repository.js';
 import { AppointmentFactory } from '../models/Appointment.js';
 
-// Servicio para manejar las citas médicas
-// Siguiendo el principio de responsabilidad unica
+// Servicio encargado de la persistencia y recuperación de citas médicas.
+// Implementa la interfaz CRUD definida por `Repository` y usa un `storage` inyectable.
 export class AppointmentService extends Repository {
 
-    //Contructor que inicializa el almacenamiento y hereda de Repository
+    // Constructor: storage inyectable (por defecto `localStorage`) y clave para persistencia
     constructor(storage = localStorage) {
         super();
         this.storage = storage;

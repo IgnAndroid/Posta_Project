@@ -1,9 +1,10 @@
 import { Controller } from './Controller.js';
 import { AuthService } from '../services/AuthService.js';
 
-// Controlador de Autenticación siguiendo el principio de Responsabilidad Única
+// Controlador de autenticación: valida datos de login y maneja la navegación posterior.
+// Por defecto crea un `AuthService`, pero podría recibir una instancia inyectada si se refactoriza.
 export class AuthController extends Controller {
-    // Constructor que inicializa el servicio de autenticación
+    // Constructor que inicializa (por defecto) el servicio de autenticación
     constructor() {
         super(new AuthService());
     }

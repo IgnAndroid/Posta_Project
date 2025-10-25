@@ -1,7 +1,7 @@
 import { Entity } from '../core/Entity.js';
 
-// Clase que representa una Cita Médica
-// Siguiendo el principio de responsabilidad única
+// Clase que representa una Cita Médica (dominio).
+// Contiene validación y serialización de la entidad.
 export class Appointment extends Entity {
     // Constructor 
     constructor(id, patientId, doctorId, date, status) {
@@ -44,8 +44,7 @@ export class Appointment extends Entity {
     }
 }
 
-// Fábrica para crear instancias de Cita Médica
-// Siguiendo el patron factory 
+// Fábrica para crear instancias de Cita Médica (Factory pattern)
 export class AppointmentFactory {
     // Crea una nueva instancia de Cita Médica
     static createAppointment(data) {

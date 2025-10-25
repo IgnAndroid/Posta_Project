@@ -1,7 +1,8 @@
 import { AuthController } from '../../assets/js/controllers/AuthController.js';
 import { ValidationUtils, UIUtils } from '../../assets/js/utils/utils.js';
 
-// Pagina de control aplicando el principio de responsabilidad unica
+// Lógica de la página de login: enlaza el formulario con el controlador de autenticación
+// y maneja la interacción básica (autocompletado de credenciales demo y envío).
 class LoginPage {
     constructor() {
         this.authController = new AuthController();

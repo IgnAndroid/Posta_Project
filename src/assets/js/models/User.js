@@ -1,10 +1,10 @@
 import { Entity } from '../core/Entity.js';
 
-// Clase que representa un Usuario
-// Siguiendo el principio de responsabilidad única
-
+// Clase que representa un Usuario del dominio.
+// Incluye validación y serialización a JSON.
 export class User extends Entity {
     // Constructor que inicializa el usuario
+    // Nota: la propiedad usada aquí es `gmail` (mantener coherencia con el resto del proyecto)
     constructor(id, gmail, nombre, role){
         super(id);
         this.gmail = gmail;
@@ -37,11 +37,8 @@ export class User extends Entity {
     }
 }
 
-// Fábrica para crear instancias de Usuario
-// Siguiendo el patron factory
-export class UserFactory 
-
-{
+// Fábrica para crear instancias de Usuario (Factory pattern)
+export class UserFactory {
     // Crea una nueva instancia de Usuario
     static createUser(data) {
         return new User(

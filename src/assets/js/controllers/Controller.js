@@ -1,4 +1,5 @@
-// Controlador base que otros controladores 
+// Controlador base que deben extender los controladores específicos.
+// Provee manejo básico de errores y declaración de contrato para validación de formularios.
 export class Controller {
     constructor(service) {
         if (new.target === Controller) {
@@ -13,6 +14,7 @@ export class Controller {
     }
 
     validateForm(formData) {
+        // Método a implementar por cada controlador concreto para validar datos de entrada.
         throw new Error("Method 'validateForm()' must be implemented.");
     }
 }

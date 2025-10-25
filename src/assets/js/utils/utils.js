@@ -1,6 +1,6 @@
-// Utilidades generales para la aplicación
-// Te enfoca en el manejo de validaciones y pequeñas ayudas para la UI
-// Funciones reutilizables para validación de datos
+// Utilidades generales para la aplicación.
+// Contiene helpers de validación (`ValidationUtils`) y pequeñas ayudas de UI (`UIUtils`).
+// Diseñado para ser importado por páginas y controladores para comportamientos comunes.
 
 export const ValidationUtils = {
     // Verifica si una cadena es un email válido

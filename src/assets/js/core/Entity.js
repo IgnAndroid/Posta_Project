@@ -1,5 +1,5 @@
-// Clase Entity que sirve como base para otras entidades
-// Siguiendo el principio de segregación de interfaces (Interface Segregation Principle)
+// Clase base para entidades del dominio.
+// Provee un identificador y contratos mínimos como `validate()` y `toJSON()`.
 export class Entity {
     // Constructor que inicializa la entidad con un ID
     constructor(id) {

@@ -1,7 +1,7 @@
-// Servicio de autenticación para manejar el inicio y cierre de sesión de usuarios
-// Siguiendo el principio de responsabilidad abierta/cerrada (Open/Closed Principle)
+// Servicio de autenticación: maneja inicio/cierre de sesión y persistencia del usuario actual.
+// La implementación actual usa `storage` (por defecto `localStorage`) para persistir el estado.
 export class AuthService {
-    // Constructor que inicializa el almacenamiento y el usuario actual
+    // Inicializa el servicio con un almacenamiento inyectable (útil para pruebas)
     constructor(storage = localStorage) {
         this.storage = storage;
         this.currentUser = null;

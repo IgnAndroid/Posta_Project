@@ -1,5 +1,5 @@
-// Repositorio base que otros repositorios deben extender
-// Siguiendo el principio de Inversión de Dependencias (Dependency Inversion Principle)
+// Repositorio base (interfaz/abstracta) que implementaciones concretas deben extender.
+// Define la API CRUD mínima esperada para repositorios de dominio.
 export class Repository {
     // Constructor
     constructor() {
