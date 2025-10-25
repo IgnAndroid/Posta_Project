@@ -2,12 +2,15 @@ import { Controller } from './Controller.js';
 import { AppointmentService } from '../services/AppointmentService.js';
 import { AppointmentFactory } from '../models/Appointment.js';
 
-// Appointment Controller following Single Responsibility
+// Controlador para manejar la lógica de citas médicas
+// Siguiendo el principio de responsabilidad única
 export class AppointmentController extends Controller {
+    // Constructor que inicializa el servicio de citas
     constructor() {
         super(new AppointmentService());
     }
 
+    // Validación de datos de la cita
     validateForm(formData) {
         if (!formData.patientId) {
             throw new Error('Paciente es requerido');
@@ -21,6 +24,7 @@ export class AppointmentController extends Controller {
         return true;
     }
 
+    // Creación de una cita
     async createAppointment(formData) {
         try {
             this.validateForm(formData);
@@ -39,6 +43,7 @@ export class AppointmentController extends Controller {
         }
     }
 
+    // Obtención de citas de un paciente y un médico
     async getPatientAppointments(patientId) {
         try {
             return await this.service.findByPatient(patientId);
@@ -48,6 +53,7 @@ export class AppointmentController extends Controller {
         }
     }
 
+    // Obtención de citas de un médico
     async getDoctorAppointments(doctorId) {
         try {
             return await this.service.findByDoctor(doctorId);
@@ -57,6 +63,7 @@ export class AppointmentController extends Controller {
         }
     }
 
+    // Actualización del estado de una cita
     async updateStatus(appointmentId, newStatus) {
         try {
             const appointment = await this.service.find(appointmentId);
@@ -73,6 +80,7 @@ export class AppointmentController extends Controller {
         }
     }
 
+    // Cancelación de una cita
     async cancelAppointment(appointmentId) {
         try {
             const appointment = await this.service.find(appointmentId);
