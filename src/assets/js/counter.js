@@ -9,5 +9,5 @@ export function setupCounter(element) {
   setCounter(0)
 }
 
-// Nota : este archivo es solo un ejemplo de un módulo JS simple.
+//Nota : este archivo es solo un ejemplo de un módulo JS simple.
 // Puedes eliminarlo si no lo necesitas.

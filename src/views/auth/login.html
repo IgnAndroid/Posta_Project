@@ -117,55 +117,62 @@
         </div>
     </section>
 
-    <!-- Bootstrap 5 JS -->
+    <!-- Bootstrap 5 JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Custom JavaScript -->
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const role = document.getElementById('role').value;
-            
-            // Simulación de autenticación
-            if (email && password && role) {
-                // Mostrar loading
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Verificando...';
-                submitBtn.disabled = true;
-                
-                // Simular delay de red
-                setTimeout(() => {
-                    if (role === 'admin') {
-                            window.location.href = '../admin/admin-dashboard.html';
-                        } else if (role === 'medico') {
-                            window.location.href = '../medico/medico-dashboard.html';
-                        }
-                }, 1500);
+    <!-- Nuestros módulos JavaScript -->
+    <script type="module" src="../../js/auth/login.js"></script>
+    
+    <!-- Polyfill para navegadores antiguos que no soportan modules -->
+    <script nomodule>
+        // Mostrar mensaje de error para navegadores que no soportan módulos
+        document.addEventListener('DOMContentLoaded', () => {
+            const app = document.getElementById('app');
+            if (app) {
+                app.innerHTML = `
+                    <div class="alert alert-danger">
+                        <h4 class="alert-heading">Error de compatibilidad</h4>
+                        <p>Tu navegador no soporta módulos JavaScript. Por favor, actualiza a una versión más reciente o usa un navegador moderno como Chrome, Firefox, Edge o Safari.</p>
+                    </div>
+                `;
             }
         });
-
-        // Auto-complete demo credentials
-        document.addEventListener('DOMContentLoaded', function() {
-            const roleSelect = document.getElementById('role');
-            const emailInput = document.getElementById('email');
-            const passwordInput = document.getElementById('password');
+    </script>
+    
+    <!-- Script para manejar el estado de carga -->
+    <script>
+        // Mostrar mensaje de carga
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadingOverlay = document.getElementById('loadingOverlay');
             
-            roleSelect.addEventListener('change', function() {
-                if (this.value === 'admin') {
-                    emailInput.value = 'admin@miposta.com';
-                    passwordInput.value = 'admin123';
-                } else if (this.value === 'medico') {
-                    emailInput.value = 'medico@miposta.com';
-                    passwordInput.value = 'medico123';
-                } else {
-                    emailInput.value = '';
-                    passwordInput.value = '';
+            // Si el módulo se carga correctamente, este script se ejecutará después
+            // Si hay un error, mostraremos un mensaje después de un tiempo
+            const loadingTimeout = setTimeout(() => {
+                if (loadingOverlay && !window.appInitialized) {
+                    loadingOverlay.innerHTML = `
+                        <div class="text-center">
+                            <div class="spinner-border text-danger" role="status" style="width: 3rem; height: 3rem;">
+                                <span class="visually-hidden">Cargando...</span>
+                            </div>
+                            <p class="mt-3">Cargando la aplicación...</p>
+                            <div class="alert alert-warning mt-3">
+                                Si la aplicación no carga, verifica la consola del navegador (F12) para ver errores.
+                            </div>
+                        </div>
+                    `;
                 }
-            });
+            }, 5000); // Mostrar mensaje de error después de 5 segundos
+            
+            // Marcar como cargado cuando el módulo esté listo
+            window.appInitialized = true;
+            clearTimeout(loadingTimeout);
+            
+            if (loadingOverlay) {
+                loadingOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 300);
+            }
         });
     </script>
 </body>
