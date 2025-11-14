@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto me-3">
                     <li class="nav-item">
-                        <a class="nav-link" href="../paciente/miscitas.html">
+                        <a id="navMisCitas" class="nav-link" href="../paciente/miscitas.html">
                             <i class="fas fa-calendar-alt me-1"></i>Mis Citas
                         </a>
                     </li>
@@ -263,6 +263,15 @@
     
     <!-- Custom JavaScript -->
     <script>
+        // Toggle visibility of "Mis Citas" based on auth
+        (function(){
+            const link = document.getElementById('navMisCitas');
+            const token = localStorage.getItem('authToken');
+            if (link && !token) {
+                link.style.display = 'none';
+            }
+        })();
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
