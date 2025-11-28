@@ -241,7 +241,7 @@ Las contribuciones son bienvenidas. Por favor, lee las [pautas de contribución]
 
 ---
 
-<div align="center">
+<div>
   Hecho con ❤️ por el equipo de miPosta
 </div>
 

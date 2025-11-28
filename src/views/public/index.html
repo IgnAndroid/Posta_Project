@@ -263,13 +263,15 @@
     
     <!-- Custom JavaScript -->
     <script>
-        // Toggle visibility of "Mis Citas" based on auth
+        // Toggle visibility of "Mis Citas" only for usuarios autenticados con rol 'paciente'
         (function(){
-            const link = document.getElementById('navMisCitas');
+            const navLink = document.getElementById('navMisCitas');
+            const footerLink = document.querySelector('footer a[href="../paciente/miscitas.html"], footer a[href="/paciente/miscitas.html"]');
             const token = localStorage.getItem('authToken');
-            if (link && !token) {
-                link.style.display = 'none';
-            }
+            const role = localStorage.getItem('userRole');
+            const canSee = !!token && role === 'paciente';
+            if (navLink && !canSee) navLink.style.display = 'none';
+            if (footerLink && !canSee) footerLink.style.display = 'none';
         })();
 
         // Smooth scrolling for anchor links

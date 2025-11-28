@@ -16,7 +16,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="../public/index.html">
+            <a class="navbar-brand" href="/public/index.html">
                 <i class="fas fa-stethoscope me-2"></i>miPosta
             </a>
             
@@ -32,12 +32,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../public/noticias.html">
+                        <a class="nav-link" href="/public/noticias.html">
                             <i class="fas fa-newspaper me-1"></i>Noticias
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../public/contact.html">
+                        <a class="nav-link" href="/public/contact.html">
                             <i class="fas fa-envelope me-1"></i>Contáctenos
                         </a>
                     </li>
@@ -51,7 +51,7 @@
                         <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Mi Perfil</a></li>
                         <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="../public/index.html"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                        <li><a class="dropdown-item" href="/public/index.html"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
                     </ul>
                 </div>
             </div>
@@ -219,17 +219,17 @@
                         <h4 class="text-primary-custom mb-4"><i class="fas fa-bolt me-2"></i>Acciones Rápidas</h4>
                         
                         <div class="d-grid gap-3">
+                            <a href="/admin/database-admin.html" class="btn btn-dark">
+                                <i class="fas fa-database me-2"></i>Gestión de Base de Datos
+                            </a>
+                            <a href="/admin/db-admin-emergency.html" class="btn btn-danger">
+                                <i class="fas fa-exclamation-triangle me-2"></i>Acceso de Emergencia a BD
+                            </a>
                             <button class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#scheduleModal">
                                 <i class="fas fa-calendar-plus me-2"></i>Gestionar Horarios
                             </button>
                             <button class="btn btn-success-custom" data-bs-toggle="modal" data-bs-target="#doctorModal">
                                 <i class="fas fa-user-md me-2"></i>Administrar Médicos
-                            </button>
-                            <button class="btn btn-info" style="color: white;">
-                                <i class="fas fa-chart-bar me-2"></i>Ver Reportes
-                            </button>
-                            <button class="btn btn-warning" style="color: white;">
-                                <i class="fas fa-bell me-2"></i>Configurar Alertas
                             </button>
                         </div>
                     </div>
